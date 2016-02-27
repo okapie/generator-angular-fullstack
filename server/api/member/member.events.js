@@ -1,15 +1,15 @@
 /**
- * Thing model events
+ * Member model events
  */
 
 'use strict';
 
 import {EventEmitter} from 'events';
-var Thing = require('../../sqldb').Thing;
-var ThingEvents = new EventEmitter();
+var Member = require('../../sqldb').Member;
+var MemberEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-ThingEvents.setMaxListeners(0);
+MemberEvents.setMaxListeners(0);
 
 // Model events
 var events = {
@@ -21,15 +21,15 @@ var events = {
 // Register the event emitter to the model events
 for (var e in events) {
   var event = events[e];
-  Thing.hook(e, emitEvent(event));
+  Member.hook(e, emitEvent(event));
 }
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    ThingEvents.emit(event + ':' + doc._id, doc);
-    ThingEvents.emit(event, doc);
+    MemberEvents.emit(event + ':' + doc._id, doc);
+    MemberEvents.emit(event, doc);
     done(null);
   }
 }
 
-module.exports = ThingEvents;
+module.exports = MemberEvents;

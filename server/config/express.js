@@ -17,11 +17,12 @@ import lusca from 'lusca';
 import config from './environment';
 import passport from 'passport';
 import session from 'express-session';
-import sqldb from '../sqldb';
+//import sqldb from '../sqldb';
+var sqldb = require('../sqldb');
 import expressSequelizeSession from 'express-sequelize-session';
 var Store = expressSequelizeSession(session.Store);
 
-export default function(app) {
+module.exports = function(app) {
   var env = app.get('env');
 
   app.set('views', config.root + '/server/views');

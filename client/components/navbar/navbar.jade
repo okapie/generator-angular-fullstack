@@ -23,6 +23,9 @@ div.navbar.navbar-default.navbar-static-top(ng-controller='NavbarController')
         li(ng-hide='nav.isLoggedIn()', ui-sref-active='active')
           a(ui-sref='login') Login
 
+        li(ng-hide='nav.isLoggedIn()', ui-sref-active='active')
+          a(ui-sref='member') Member
+
         li(ng-show='nav.isLoggedIn()')
           p.navbar-text Hello {{ nav.getCurrentUser().name }}
 

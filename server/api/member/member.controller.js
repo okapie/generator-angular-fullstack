@@ -1,16 +1,16 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/things              ->  index
- * POST    /api/things              ->  create
- * GET     /api/things/:id          ->  show
- * PUT     /api/things/:id          ->  update
- * DELETE  /api/things/:id          ->  destroy
+ * GET     /api/members              ->  index
+ * POST    /api/members              ->  create
+ * GET     /api/members/:id          ->  show
+ * PUT     /api/members/:id          ->  update
+ * DELETE  /api/members/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-var Thing = require('../../sqldb').Thing;
+var Member = require('../../sqldb').Member;
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -58,16 +58,16 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Things
+// Gets a list of Members
 export function index(req, res) {
-  Thing.findAll()
+  Member.findAll()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Thing from the DB
+// Gets a single Member from the DB
 export function show(req, res) {
-  Thing.find({
+  Member.find({
     where: {
       _id: req.params.id
     }
@@ -77,19 +77,19 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-// Creates a new Thing in the DB
+// Creates a new Member in the DB
 export function create(req, res) {
-  Thing.create(req.body)
+  Member.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing Thing in the DB
+// Updates an existing Member in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Thing.find({
+  Member.find({
     where: {
       _id: req.params.id
     }
@@ -100,9 +100,9 @@ export function update(req, res) {
     .catch(handleError(res));
 }
 
-// Deletes a Thing from the DB
+// Deletes a Member from the DB
 export function destroy(req, res) {
-  Thing.find({
+  Member.find({
     where: {
       _id: req.params.id
     }

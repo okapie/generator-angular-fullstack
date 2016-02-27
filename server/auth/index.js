@@ -3,7 +3,8 @@
 import express from 'express';
 import passport from 'passport';
 import config from '../config/environment';
-import {User} from '../sqldb';
+//import {User} from '../sqldb';
+var User = require('../sqldb').User;
 
 // Passport Configuration
 require('./local/passport').setup(User, config);
@@ -18,4 +19,4 @@ router.use('/facebook', require('./facebook'));
 router.use('/twitter', require('./twitter'));
 router.use('/google', require('./google'));
 
-export default router;
+module.exports = router;

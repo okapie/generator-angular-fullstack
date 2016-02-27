@@ -1,6 +1,7 @@
 'use strict';
 
-import {User} from '../../sqldb';
+//import {User} from '../../sqldb';
+var User = require('../../sqldb').User;
 import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';

@@ -4,9 +4,10 @@
  */
 
 'use strict';
-import sqldb from '../sqldb';
-var Thing = sqldb.Thing;
-var User = sqldb.User;
+//import sqldb from '../sqldb';
+//var sqldb = require('../sqldb');
+var Thing = require('../sqldb').Thing;
+var User = require('../sqldb').User;
 
 Thing.sync()
   .then(() => {

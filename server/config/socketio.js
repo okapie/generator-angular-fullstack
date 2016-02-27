@@ -17,11 +17,12 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/member/member.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 
 }
 
-export default function(socketio) {
+module.exports = function(socketio) {
   // socket.io (v1.x.x) is powered by debug.
   // In order to see all the debug output, set DEBUG (in server/config/local.env.js) to including the desired scope.
   //
