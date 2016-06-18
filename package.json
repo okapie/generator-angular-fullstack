@@ -110,6 +110,7 @@
     "run-sequence": "^1.1.0",
     "sinon": "^1.16.1",
     "sinon-chai": "^2.8.0",
+    "sqlite3": "^3.1.4",
     "supertest": "^1.1.0",
     "utile": "~0.3.0",
     "watchify": "^3.7.0",
