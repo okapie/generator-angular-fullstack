@@ -11,6 +11,7 @@ public
 .gitattributes
 .jscsrc
 .yo-rc.json
+.vagrant
 client/bower_components
 dist
 /server/config/local.env.js
